@@ -26,7 +26,7 @@ def get_english_meaning(file_path, jap_emot)
   meaning_hash = load_library(file_path)["get_meaning"]
   eng_emot = meaning_hash.reduce(nil) do |memo, (japanese, meaning)|
     if jap_emot == japanese
-      return english
+      return meaning
     end
     memo
   end
