@@ -22,6 +22,13 @@ def get_japanese_emoticon(file_path, eng_emot)
   "Sorry, that emoticon was not found" if !jap_emot
 end
 
-def get_english_meaning
-  meanig_hash = load_library(file_path, )
+def get_english_meaning(file_path, jap_emot)
+  meaning_hash = load_library(file_path)["get_meaning"]
+  eng_emot = meaning_hash.reduce(nil) do |memo, (japanese, meaning)|
+    if jap_emot == japanese
+      return english
+    end
+    memo
+  end
+  "Sorry, that emoticon was not found" if !eng_emot
 end
